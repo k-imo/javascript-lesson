@@ -41,7 +41,9 @@ let playerList = [{
 console.log(playerList[1].favorites[1]);
 
 //Q5 四則演算
-aveAge = (playerList[0].age + playerList[1].age + playerList[2].age) / playerList.length;
+aveAge = playerList.reduce((acc, cur) => {
+  return acc + cur.age;
+}, 0) / playerList.length;
 console.log(aveAge);
 
 //Q6 関数
@@ -110,14 +112,9 @@ console.log(Math.floor(10 * Math.random()));
 
 //Q2 コールバック関数
 
-function doFunc(callback) {
-  setTimeout(function () {}, 3000);
-  callback();
-}
-
-doFunc(function () {
+setTimeout(function () {
   console.log('Hello World!');
-});
+}, 3000);
 
 //Q3 if
 let num = 3;
